@@ -1,0 +1,46 @@
+{
+  "kind": "ReplicationController",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "zookeeper",
+    "creationTimestamp": null,
+    "labels": {
+      "service": "zookeeper"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "service": "zookeeper"
+    },
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "service": "zookeeper"
+        }
+      },
+      "spec": {
+        "volumes": null,
+        "containers": [
+          {
+            "name": "zookeeper",
+            "image": "wurstmeister/zookeeper",
+            "ports": [
+              {
+                "containerPort": 2181
+              }
+            ],
+            "resources": {},
+            "imagePullPolicy": ""
+          }
+        ],
+        "restartPolicy": "Always",
+        "serviceAccountName": ""
+      }
+    }
+  },
+  "status": {
+    "replicas": 0
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "ReplicationController",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "kafka",
+    "creationTimestamp": null,
+    "labels": {
+      "service": "kafka"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "service": "kafka"
+    },
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "service": "kafka"
+        }
+      },
+      "spec": {
+        "volumes": null,
+        "containers": [
+          {
+            "name": "kafka",
+            "image": "",
+            "ports": [
+              {
+                "containerPort": 9092
+              }
+            ],
+            "resources": {},
+            "imagePullPolicy": ""
+          }
+        ],
+        "restartPolicy": "Always",
+        "serviceAccountName": ""
+      }
+    }
+  },
+  "status": {
+    "replicas": 0
+  }
+}
